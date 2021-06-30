@@ -48,36 +48,8 @@ using VibrationData = vector<double>;
         vibrationData.resize(4);
         timeData.resize(4);
         futures.resize(4);
-        //data.resize(4);
     }
 
-//    void CollectDataSingleThread(DataCollector& c, uint8_t sensorNumber) {
-//        c.data_collector_mutex.lock();
-//        c.sensors[sensorNumber].IsWathed() = true;
-//        c.data_collector_mutex.unlock();
-
-//        double processedData;
-//        double deltaTime = SENSOR_TIMEFRAME / 1000. / DATA_LENGTH;
-
-//        while (c.sensors[sensorNumber].IsWathed()) {
-//            Sleep(SENSOR_TIMEFRAME); // immitating that sensor send data every SENSOR_TIMEFRAME miliseconds
-//            c.data_collector_mutex.lock();
-//            processedData = MSV(c.sensors[sensorNumber].getData(deltaTime, c.config.stddev));
-//            if (c.vibrationData[sensorNumber].size() >= MAX_QT_PLOT_CAPACITY){
-//                c.vibrationData[sensorNumber].clear();
-//                c.timeData[sensorNumber].clear();
-//            }
-//            c.vibrationData[sensorNumber].push_back(processedData);
-//            if (!c.timeData[sensorNumber].empty()) {
-//                c.timeData[sensorNumber].push_back(c.timeData[sensorNumber].back() + SENSOR_TIMEFRAME / 1000.);
-//            } else {
-//                c.timeData[sensorNumber].push_back(0);
-//            }
-//            c.parentUI->plot(sensorNumber, c.vibrationData[sensorNumber], c.timeData[sensorNumber]);
-//            c.data_collector_mutex.unlock();
-//        }
-//        return;
-//    }
     void DataCollector::CollectDataSingleThreadTest(uint8_t sensorNumber){
         data_collector_mutex.lock();
         sensors[sensorNumber].IsWathed() = true;

@@ -1,6 +1,5 @@
 ﻿#include "dataCollector.h"
 #include "mainwindow.h"
-#include <QDebug>
 using namespace std;
 
 using VibrationData = vector<double>;
